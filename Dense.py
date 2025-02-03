@@ -1,20 +1,18 @@
 import numpy as np
-from Layer import Layer
-class Dense(Layer):
-    def __init__(self,input_size,output_size):
+class Dense:
+    def __init__(self, input_dim, output_dim):
         np.random.seed(42)
-        self.weights = np.random.randn(input_size, output_size) * np.sqrt(2 / input_size)  # He initialization
-        #self.weights=np.random.randn(input_size,output_size)*0.1
-        self.bias=np.random.randn(1,output_size)
-    def forward(self,input_ar):
-        self.input_ar=input_ar
-        #l=np.dot(self.input_ar,self.weights)+self.bias
-        #print(l.shape)
-        return np.dot(self.input_ar,self.weights)+self.bias
-    def backward(self,output_gradient,learning_rate):
-        dw=np.dot(self.input_ar.T,output_gradient)
-        input_gradient=np.dot(output_gradient,self.weights.T)
-        self.weights -= learning_rate * dw
-        db = np.sum(output_gradient, axis=0, keepdims=True)
-        self.bias-=learning_rate*db
-        return input_gradient
+        self.weights = np.random.randn(input_dim, output_dim) * 0.1
+        self.biases = np.zeros(output_dim)
+
+    def forward(self, input_data):
+        self.input_data = input_data
+        return np.dot(input_data, self.weights).round(decimals=3) + self.biases
+
+    def backward(self, d_output, learning_rate):
+        d_weights = np.dot(self.input_data.T, d_output)
+        d_biases = np.sum(d_output, axis=0)
+        d_input = np.dot(d_output, self.weights.T)
+        self.weights -= (learning_rate * d_weights)
+        self.biases -= (learning_rate * d_biases)
+        return d_input
