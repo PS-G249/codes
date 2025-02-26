@@ -158,24 +158,6 @@
     catch (error) {
         errorDiv.textContent = error.message;
       }
-      /*finally {
-        form.addEventListener("change", function(e) { 
-          const file1 = event.target.files[0]; 
-          const reader = new FileReader(); 
- 
-        reader.onload = function(e) { 
-          const img = document.createElement("img"); 
-          img.src = e.target.result; // The base64-encoded image data 
-          img.alt = "Uploaded Image"; 
-          img.width = 150;  
-          imageContainer.appendChild(img); 
-        }; 
- 
-        if (file1) { 
-          reader.readAsDataURL(file1); // Read the file as a base64-encoded URL 
-        } 
-      }); 
-      }*/
     }); 
 
   </script>
