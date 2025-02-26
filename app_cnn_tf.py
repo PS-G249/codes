@@ -52,7 +52,7 @@ def predict():
         # Delete the file after prediction to save space
         #os.remove(filepath)
 
-    return jsonify({"plantClass": f"amla,{image_url}"})
+    return jsonify({"plantClass": f"{predicted_class},{image_url}"})
 
 if __name__ == '__main__':
     app.run(debug=True)
