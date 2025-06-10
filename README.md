@@ -1,3 +1,5 @@
+IDENTIFICATION OF INDIAN MEDICINAL PLANTS USING CNN
+
 📌 Overview
 Plant identification is crucial in agriculture, herbal medicine, and biodiversity conservation. Traditional AI-based systems rely on datasets like Flavia, Folio, and PlantVillage, which feature isolated leaves on uniform backgrounds. However, these controlled datasets do not reflect real-world conditions.
 
@@ -11,6 +13,7 @@ Our dataset consists of plant images captured in a nursery environment, categori
 🌿 Brahmi
 🍃 Neem
 🌿 Tulasi
+
 Data Augmentation
 To increase the dataset size, we applied data augmentation:
 ✅ Original dataset: 425 images
@@ -24,7 +27,7 @@ Training images: 1,020
 Testing images: 255
 
 🛠️ Model Development
-We implemented CNN and ANN models from scratch and using TensorFlow & PyTorch, experimenting with different configurations:
+We implemented CNN and ANN models using only NumPy, TensorFlow & PyTorch, experimenting with different configurations:
 
 Hyperparameter Variations
 Activation Functions: Tanh, ReLU, LeakyReLU
